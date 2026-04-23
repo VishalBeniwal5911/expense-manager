@@ -23,7 +23,7 @@ function Register() {
 
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/register', form);
+      await axios.post('https://expense-manager-backend-lb8s.onrender.com/api/register', form);
       setSuccess('Account created! Redirecting to login...');
       setTimeout(() => navigate('/login'), 1500);
     } catch (err) {

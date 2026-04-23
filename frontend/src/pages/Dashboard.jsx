@@ -30,7 +30,7 @@ function Dashboard() {
 
   const fetchExpenses = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/expenses', { headers });
+      const res = await axios.get('https://expense-manager-backend-lb8s.onrender.com/api/expenses', { headers });
       setExpenses(res.data);
     } catch {
       setError('Failed to load expenses');
@@ -51,7 +51,7 @@ function Dashboard() {
     setAdding(true);
     setError('');
     try {
-      await axios.post('http://localhost:5000/api/expense', form, { headers });
+      await axios.post('https://expense-manager-backend-lb8s.onrender.com/api/expense', form, { headers });
       setForm({ title: '', amount: '', category: 'Food', date: new Date().toISOString().split('T')[0] });
       await fetchExpenses();
     } catch {
@@ -63,7 +63,7 @@ function Dashboard() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/expense/${id}`, { headers });
+      await axios.delete(`https://expense-manager-backend-lb8s.onrender.com/api/expense/${id}`, { headers });
       setExpenses(prev => prev.filter(e => e._id !== id));
     } catch {
       setError('Failed to delete');
