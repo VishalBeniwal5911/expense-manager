@@ -7,7 +7,7 @@ const authRoutes = require('./routes/auth');
 const expenseRoutes = require('./routes/expenses');
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: 'https://expense-manager-frontend.onrender.com' }));
 app.use(express.json());
 
 // Routes
